@@ -57,7 +57,7 @@ export default function Home() {
   useEffect(() => {
     const fetchDailyPnl = async () => {
       try {
-        const res = await fetch("http://localhost:8000/pnl");
+        const res = await fetch("https://white-field-1977.fly.dev/pnl");
         const json = await res.json(); // { day, realised, unrealised, equity }
 
         setDailyPnl({
@@ -76,7 +76,7 @@ export default function Home() {
     return () => clearInterval(id); // cleanup on unmount
   }, []);
   useEffect(() => {
-    const src = new EventSource("http://localhost:8000/stream/orders");
+    const src = new EventSource("https://white-field-1977.fly.dev/orders");
 
     src.onmessage = (e) => {
       const raw = JSON.parse(e.data);
@@ -100,7 +100,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const src = new EventSource("http://localhost:8000/stream/pnl");
+    const src = new EventSource("https://white-field-1977.fly.dev/stream/pnl");
 
     src.onmessage = (e) => {
       const raw = JSON.parse(e.data);
@@ -123,7 +123,9 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const src = new EventSource("http://localhost:8000/stream/ticker");
+    const src = new EventSource(
+      "https://white-field-1977.fly.dev/stream/ticker"
+    );
 
     src.onmessage = (e) => {
       const raw = JSON.parse(e.data);
@@ -262,6 +264,21 @@ export default function Home() {
             height={16}
           />
           Go to my github
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://github.com/nilsvselte/mm_bot"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/github-mark.svg"
+            alt="github icon"
+            width={16}
+            height={16}
+          />
+          Go to the backend (non public)
         </a>
       </footer>
     </div>
