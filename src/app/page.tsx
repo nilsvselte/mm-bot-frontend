@@ -76,7 +76,9 @@ export default function Home() {
     return () => clearInterval(id); // cleanup on unmount
   }, []);
   useEffect(() => {
-    const src = new EventSource("https://white-field-1977.fly.dev/orders");
+    const src = new EventSource(
+      "https://white-field-1977.fly.dev/stream/orders"
+    );
 
     src.onmessage = (e) => {
       const raw = JSON.parse(e.data);
