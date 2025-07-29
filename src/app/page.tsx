@@ -269,7 +269,7 @@ export default function Home() {
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/nilsvselte/mm_bot"
+          href="https://github.com/nilsvselte/mm_bot_public"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -280,7 +280,22 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to the backend (non public)
+          Go to the backend
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://github.com/nilsvselte/mm-bot-frontend"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/github-mark.svg"
+            alt="github icon"
+            width={16}
+            height={16}
+          />
+          Go to the frontend
         </a>
       </footer>
     </div>
